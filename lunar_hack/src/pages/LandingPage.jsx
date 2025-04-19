@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 export default function LandingPage() {
   return (
-    <div className="min-h-screen w-screen h-screen bg-gradient-to-br from-gray-50 to-gray-200">
+    <div className="min-h-screen w-screen bg-gradient-to-br from-gray-50 to-gray-200">
         <nav className="bg-white/90 backdrop-blur-lg py-3 px-4 sm:px-8 flex flex-col sm:flex-row justify-between items-center sticky top-0 z-50 border-b border-gray-200/70 shadow-sm">
       {/* Mobile Header */}
       <div className="w-full flex justify-between items-center sm:hidden">
