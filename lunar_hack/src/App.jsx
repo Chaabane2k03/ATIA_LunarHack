@@ -1,26 +1,24 @@
 import './App.css'
-
-//import {toast,toastContainer} from 'react-toastify'
-//import 'react-toastify/dist/ReactToastify.css';
+import  { Toaster } from 'react-hot-toast';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
-import LostXFound from './pages/LostXFound';
-import SmartBot from './pages/SmartBot';
+import Login from './pages/login';
+
 
 function App() {
- 
   return (
 
       <Router>
+        <Toaster />
         <Routes>
           <Route path="/" element={<LandingPage/>}/>
-          <Route path="/lost-found" element={<LostXFound/>}/>
-          <Route path="/smart-bot" element={<SmartBot/>}/>
+          <Route path="/smart" element={<SmartCampusAssistant/>}/>
+          <Route path="/login" element={<Login/>}/>
         </Routes>
       </Router>
         
   )
 }
 
-export default App
+export default App;
