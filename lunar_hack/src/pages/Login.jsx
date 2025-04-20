@@ -1,13 +1,14 @@
 import React, { useState,useEffect } from 'react';
 import { MdVisibility, MdVisibilityOff } from "react-icons/md";
 import toast from "react-hot-toast";
-
+import { useNavigate } from 'react-router-dom';
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [afficherMotDePasse, setAfficherMotDePasse] = useState(false);
   const [error,setError]=useState(null)
+  const navigate = useNavigate();
   const showError = () => {
       toast.error(error, {
         position: "top-center",
@@ -36,7 +37,7 @@ const Login = () => {
       setError(null);
     
       try {
-        const response = await fetch('http://localhost:5000/signup', {
+        const response = await fetch('http://localhost:5000/login', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -47,7 +48,9 @@ const Login = () => {
         const data = await response.json();
     
         if (response.ok) {
-          console.log('User created:', data);
+          console.log('User connected:', data.user_id);
+          sessionStorage.setItem('userDetails', JSON.stringify(data.user_id)); // Store user details in session storage&
+          navigate('/home'); // Redirect to the smart bot page
           // Do something: redirect or update state
         } else {
           setError(data.error || 'Signup failed');
