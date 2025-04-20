@@ -83,7 +83,7 @@ const SmartBot = () => {
                 <div className="hidden sm:flex w-full justify-between items-center">
                     <div className="flex items-center space-x-6">
                         <img 
-                            src="/UTM.png" 
+                            src="./UTM.png" 
                             alt="University Logo" 
                             className="h-12 transition-all hover:scale-105 hover:opacity-90 active:scale-95"
                         />
@@ -94,7 +94,7 @@ const SmartBot = () => {
                         </Link>
                     </div>
                     <h1 className="text-2xl md:text-3xl font-bold text-gray-800 bg-gradient-to-r from-blue-600 to-green-500 bg-clip-text text-transparent">
-                        Smart Campus 
+                        Compus Compass
                     </h1>
                     <div className="flex items-center space-x-6">
                         <Link to="/lost-found" >
@@ -103,7 +103,7 @@ const SmartBot = () => {
                             </div>
                         </Link>
                         <img 
-                            src="/Ministre.png" 
+                            src="./Ministre.png" 
                             alt="Ministry Logo" 
                             className="h-12 transition-all hover:scale-105 hover:opacity-90 active:scale-95" 
                         />

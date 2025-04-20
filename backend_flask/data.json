@@ -1,0 +1,368 @@
+{
+    "root" : {
+        "intents" : [
+            {
+                "tag": "greeting",
+                "patterns": [
+                  "Hi", "Hello", "Good day", "Hey", "How are you?", "Bonjour", "Ahla", "Salam", "Asslema", "Bonsoir", "Salut",
+                  "Hi there", "hello!", "Salam Alikom", "Hi ya", "Holla", "Ahlan", "hey how", "Kif raye7", "Ahlen",
+                  "Kifak?", "Ki chnowa", "Mar7ba", "Ahlin!"
+                ],
+                "responses": [
+                  "Bonjour, je suis votre FST Assistant ! Comment puis-je vous aider ?",
+                  "Hi there! What can I do for you?",
+                  "Mar7ba bik ! Je suis là pour vous aider.",
+                  "Hello! How can I assist you today?",
+                  "Ahlen, ki chnowa l7aal?",
+                  "Salam! How can I help?"
+                ]
+              },
+              {
+                "tag": "goodbye",
+                "patterns": [
+                  "Bye", "À plus", "Au revoir", "Prends soin de toi", "Ciao", "Saha", "Yalla, à la prochaine", "Besslama",
+                  "Peace", "See ya", "Bye bye", "Take care", "Goodbye!", "Besslama!", "Yalla bye", "Inchallah be happy",
+                  "Aloha", "Sahha", "Cya"
+                ],
+                "responses": [
+                  "Besslama! Bonne journée!",
+                  "À plus! Prends soin de toi!",
+                  "Ciao! À bientôt!",
+                  "Yalla, besslama! Fais attention à toi!"
+                ]
+              },
+              {
+                "tag": "thanks",
+                "patterns": [
+                  "Merci", "Merci beaucoup", "Je vous remercie", "C'est gentil de votre part", "Je suis reconnaissant", 
+                  "Chokran", "Barak Allahou fik", "Thanks", "Thx", "Merci bcp", "Thank you", "Thank you so much",
+                  "Shukran", "Barak Allah feek", "Choukran kteer", "Tanmert"
+                ],
+                "responses": [
+                  "De rien! Je suis là pour vous aider.",
+                  "Pas de problème! Je suis content de pouvoir vous aider.",
+                  "No problem! Glad I could help.",
+                  "Anytime! I’m happy to help you."
+                ]
+              },
+              {
+                "tag": "attestation_presence",
+                "patterns": [
+                  "Comment obtenir une attestation de présence ?",
+                  "Quels sont les documents nécessaires pour l’attestation de présence ?",
+                  "Où dois-je déposer ma demande pour l’attestation de présence ?",
+                  "Quelle est la procédure pour avoir une attestation de présence ?",
+                  "Combien de temps prend la délivrance de l’attestation de présence ?",
+                  "Où puis-je trouver le formulaire pour l’attestation de présence ?",
+                  "Est-ce que l’attestation de présence est prête en 48h ?",
+                  "Dois-je signer le document avec deux professeurs ?",
+                  "Puis-je déposer ma demande en ligne pour l’attestation de présence ?",
+                  "Est-ce que je dois fournir une copie de l’attestation d’inscription pour l’attestation de présence ?",
+                  "chedet houvour", "attest présence", "présence", "formulaire présence", 
+                  "attest", "att", "pres", "attestation", "demande présence", "attestation presence", "att_pres", "att_pres_req",
+                  "Kifash najem nakhou attestation de présence ?", 
+                  "Chnowa les papiers elli lazemhom lil attestation de présence ?", 
+                  "Wen naamel la demande lil attestation de présence ?", 
+                  "Fama formulaire attestation de présence, ouin nal9ah ?", 
+                  "Chnaya la procédure ta3 l’attestation de présence ?", 
+                  "Combien de temps te5ou l’attestation de présence ?", 
+                  "Est-ce que lazimha signature mta3 2 profs ?", 
+                  "Najem ndépôsi demande online pour l’attestation de présence ?", 
+                  "Lazemha copie mta3 attestation d’inscription ?", 
+                  "Wen taamer le formulaire lil attestation de présence ?", 
+                  "Est-ce que procedure ta5ou 48h ou plus ?", 
+                  "Lazem nji lel administration wla fama autre solution ?",
+                  "tawa chi7al tb3ath l'attestation pres ?", "w9t att_pres ?"
+                ],
+                "responses": [
+                  "Pour une attestation de présence : remplissez le formulaire (depuis la bibliothèque de Basma ou le site de la fac), signez avec deux profs, joignez une copie de l’attestation d’inscription et déposez le tout à l’administration. Délai : 48h (hors weekends).",
+                  "Kifash taamel attestation de présence ? Remplis formulaire (mta3 bibliothéque Basma wla site de fac), khallih yetsigné mtaa deux profs w zid maah copie inscription. Dépose l’administration. Procedure te5ou 48h sans weekends.",
+                  "Remplissez la demande, faites-la signer par deux enseignants, ajoutez une copie de votre attestation d'inscription et déposez-la à l’administration. Tout cela peut être fait en 48h."
+                ]
+              },
+              {
+                "tag": "attestation_inscription",
+                "patterns": [
+                  "Comment obtenir une attestation d'inscription ?",
+                  "Quels sont les documents nécessaires pour une attestation d'inscription ?",
+                  "Où dois-je aller pour demander une attestation d'inscription ?",
+                  "Quelle est la procédure pour avoir une attestation d'inscription ?",
+                  "Quels sont les horaires pour demander une attestation d'inscription ?",
+                  "Est-ce que je peux demander une attestation d'inscription après le 1er octobre ?",
+                  "Est-ce que je dois apporter mon CIN pour l'attestation d'inscription ?",
+                  "Est-ce que le reçu de paiement est obligatoire pour l'attestation d'inscription ?",
+                  "L'administration est ouverte quand pour l'attestation d'inscription ?",
+                  "Je me suis inscrit sur inscription.tn, que faire ensuite pour obtenir une attestation d'inscription ?",
+                  "Kifash najem nakhou attestation d'inscription ?", 
+                  "Chnowa les papiers nécessaires lil attestation d'inscription ?", 
+                  "Ou taamel l'attestation d'inscription ?", 
+                  "Chnaya la procédure ta3 l'attestation d'inscription ?", 
+                  "Quand te7el l'administration pour l'attestation d'inscription ?", 
+                  "Najem naamel l'attestation d'inscription baad le 1er octobre ?", 
+                  "Est-ce que CIN lazma lil attestation d'inscription ?", 
+                  "Reçu de paiement obligatoire lil attestation d'inscription ?", 
+                  "L'administration taamel mel lundi lil vendredi ou fama nhar ferié ?", 
+                  "Je me suis inscrit f inscription.tn, ouish naamel taw ?",
+                  "CIN attestation ?","CIN m3a attestation ?", "Formulaire inscription ?"
+                ],
+                "responses": [
+                  "Pour obtenir une attestation d'inscription, vous devez aller à l'administration avec votre CIN et un reçu de paiement obtenu après vous être inscrit sur inscription.tn. Notez que cette procédure doit être finalisée avant le 1er octobre. L'administration est ouverte du lundi au vendredi, de 9h à 12h.",
+                  "L'attestation d'inscription ? Apportez votre CIN et le reçu de paiement (disponible après inscription sur inscription.tn). Déposez-les à l'administration avant le 1er octobre, entre 9h et 12h, du lundi au vendredi.",
+                  "Kifach taamel l'attestation d'inscription ? Mchii lel administration maah CIN w reçu paiement (mta3 inscription.tn). Lazemha takmel qabla le 1 octobre. Administration taamel mel lundi lil vendredi, mel 9h lil 12h."
+                ]
+              },
+            
+          
+              {
+                "tag": "recu_paiement",
+                "patterns": [
+                  "Comment obtenir le reçu de paiement ?", 
+                  "Où trouver le reçu de paiement après l'inscription ?", 
+                  "Quelle est la procédure pour obtenir le reçu de paiement ?", 
+                  "Comment faire pour payer les frais d'inscription ?", 
+                  "Est-ce que je dois imprimer le reçu après paiement ?", 
+                  "J'ai payé sur inscription.tn, où est mon reçu ?", 
+                  "Je n'arrive pas à trouver l'icône pour imprimer mon reçu.", 
+                  "Est-ce que je dois aller sur inscription.tn pour payer ?", 
+                  "Comment accéder au reçu de paiement ?", 
+                  "Le reçu est-il disponible immédiatement après paiement ?",
+                  
+                  "Kifach najem nakhou reçu de paiement ?", 
+                  "Ou nal9a reçu baad ma ndakhl inscription.tn ?", 
+                  "Chnaya la procédure bach nakhou reçu de paiement ?", 
+                  "Kifach ndakhl inscription.tn w ndafe3 les frais d'inscription ?", 
+                  "Est-ce que lazem imprimer le reçu baad paiement ?", 
+                  "Dafe3t f inscription.tn, ouin nal9a reçu ?", 
+                  "Ma nal9aach icône mta3 imprimer le reçu, ouich naamel ?", 
+                  "Lazem ndafe3 f inscription.tn pour nal9a reçu de paiement ?", 
+                  "Comment nal9a reçu de paiement après inscription ?", 
+                  "Reçu de paiement yodhhar directement baad paiement ?",
+                  
+                  "attest", "reçu", "paiement", "payement", "recp", "invoice", "receipt", "imprime"
+                ],
+                "responses": [
+                  "Pour obtenir le reçu de paiement, connectez-vous sur le site inscription.tn, payez les frais d'inscription, puis cliquez sur l'icône 'Reçu' pour l'imprimer.",
+                  "Le reçu de paiement est disponible après avoir payé sur inscription.tn. Une fois le paiement effectué, vous verrez une option 'Imprimer le reçu'.",
+                  "Kifach taamel le reçu de paiement ? Dakhil inscription.tn, défa3 les frais, w baad cliqui 3la icône 'Reçu' w imprimer.",
+                  "Si vous avez déjà payé sur inscription.tn, allez sur l'onglet 'Reçu' et imprimez-le directement."
+                ]
+              },
+              {
+                "tag": "carte_etudiant",
+                "patterns": [
+                  "Comment obtenir une carte d'étudiant ?", 
+                  "Quels documents faut-il pour la carte d'étudiant ?", 
+                  "Où dois-je aller pour demander ma carte d'étudiant ?", 
+                  "Est-ce que je dois fournir mon CIN pour la carte d'étudiant ?", 
+                  "Une attestation d'inscription est-elle obligatoire pour avoir une carte d'étudiant ?", 
+                  "La carte d'étudiant est-elle disponible à l'administration ?", 
+                  "Que faut-il pour récupérer une carte d'étudiant ?", 
+                  "Est-ce que je peux avoir ma carte d'étudiant sans attestation d'inscription ?", 
+                  "La carte d'étudiant est-elle gratuite ?", 
+                  "Dois-je prendre un rendez-vous pour la carte d'étudiant ?",
+                  
+                  "Kifach najem nakhou carte d'étudiant ?", 
+                  "Chnowa les papiers elli lazemhom lil carte d'étudiant ?", 
+                  "Est-ce que CIN lazma lil carte d'étudiant ?", 
+                  "L'attestation d'inscription lazma bach nakhou carte d'étudiant ?", 
+                  "Nalkaha carte d'étudiant f administration ?", 
+                  "Chnowa la procédure bach nakhou carte d'étudiant ?", 
+                  "Najem nakhou carte d'étudiant bla attestation d'inscription ?", 
+                  "Carte d'étudiant gratuite wla lazim ndafe3 ?", 
+                  "Lazim rendez-vous pour nal9a carte d'étudiant ?", 
+                  "Ou naji lil administration pour carte d'étudiant ?",
+                  
+                  "carte", "student_card", "carte_id", "CIN", "admin", "rendezvous", "card"
+                ],
+                "responses": [
+                  "Pour obtenir votre carte d'étudiant, vous devez vous rendre à l'administration avec votre attestation d'inscription et votre CIN.",
+                  "La carte d'étudiant est disponible à l'administration. Apportez votre CIN et une attestation d'inscription pour la récupérer.",
+                  "Kifach taamel carte d'étudiant ? Mchii lel administration maah attestation d'inscription w CIN.",
+                  "Pour récupérer la carte d'étudiant, assurez-vous d'avoir l'attestation d'inscription et votre CIN. Allez directement à l'administration."
+                ]
+              },
+              {
+                "tag": "releve_notes",
+                "patterns": [
+                  "Comment obtenir un relevé de notes ?", 
+                  "Quels sont les documents nécessaires pour un relevé de notes ?", 
+                  "Est-ce que je dois apporter ma carte d'étudiant pour le relevé de notes ?", 
+                  "Que faire si j'ai annulé mon inscription et que je veux un relevé de notes ?", 
+                  "Quelle est la procédure pour demander un relevé de notes après annulation de l'inscription ?", 
+                  "Est-ce que je peux demander un relevé de notes après le 31 juillet ?", 
+                  "Quand est-ce que je peux demander un relevé de notes ?", 
+                  "La carte d'étudiant est-elle obligatoire pour avoir un relevé de notes ?", 
+                  "Faut-il une attestation d'annulation d'inscription pour un relevé de notes ?", 
+                  "À quelle période puis-je obtenir un relevé de notes ?",
+                  
+                  "Kifach najem nakhou relevé de notes ?", 
+                  "Chnowa les papiers nécessaires lil relevé de notes ?", 
+                  "Est-ce que carte d'étudiant lazma lil relevé de notes ?", 
+                  "Je suis annulé mon inscription, ouich naamel bach nal9a relevé de notes ?", 
+                  "Est-ce que attestation d'annulation inscription obligatoire lil relevé de notes ?", 
+                  "Najem naamel relevé de notes baad le 31 juillet ?", 
+                  "Ou9tah najem nal9a relevé de notes ?", 
+                  "Relevé de notes yette7 billa carte d'étudiant wla fama autre solution ?", 
+                  "Lazem naamel process avant le 31 juillet ?", 
+                  "Yette7 relevé de notes mel 25 août wla lé ?",
+                  
+                  "releve", "notes", "grades", "transcript", "relevé_notes", "carte_etudiant", "CIN", "cancel"
+                ],
+                "responses": [
+                  "Pour obtenir un relevé de notes, vous devez apporter votre carte d'étudiant à l'administration. Si vous avez annulé votre inscription, une attestation d'annulation est requise. Ce processus est disponible avant le 31 juillet et à partir du 25 août.",
+                  "Relevé de notes ? Allez à l'administration avec votre carte d'étudiant. Si vous avez annulé votre inscription, apportez une attestation d'annulation. Disponible avant le 31 juillet et après le 25 août.",
+                  "Kifach taamel relevé de notes ? Mchii lel administration maah carte d'étudiant. Si annulé inscription, jib attestation d'annulation. Process maaboul qabla le 31 juillet w baad le 25 août.",
+                  "Pour récupérer votre relevé de notes, carte d'étudiant obligatoire. Si vous avez annulé votre inscription, attestation d'annulation nécessaire. Dates : avant 31 juillet ou après 25 août."
+                ]
+              },
+              {
+                "tag": "stage",
+                "patterns": [
+                  "Comment faire pour obtenir une demande de stage ?", 
+                  "Où puis-je imprimer la demande de stage ?", 
+                  "Quelles sont les étapes pour valider un stage obligatoire ou PFE ?", 
+                  "Est-ce que je dois passer par la direction des stages pour valider mon stage ?", 
+                  "La demande de stage est-elle disponible en ligne ?", 
+                  "Où se trouve la direction des stages dans la faculté ?", 
+                  "Est-ce que l'entreprise doit signer la demande de stage ?", 
+                  "La demande de stage doit-elle être remplie par l'entreprise d'accueil ?", 
+                  "Comment faire pour valider une demande de stage obligatoire ?", 
+                  "Que faire après avoir obtenu la demande de stage ?",
+                  
+                  "Kifach najem naamel demande de stage ?", 
+                  "Ou nal9a demande de stage pour PFE ?", 
+                  "Est-ce que najem imprimer demande mel biblio Basma ?", 
+                  "Ou9tah nal9a la direction des stages ?", 
+                  "L'entreprise d'accueil lazmha taamel remplir w sign la demande de stage ?", 
+                  "Ou n3adi la demande pour validation fi faculté ?", 
+                  "Stage obligatoire kif najem nvalidih ?", 
+                  "Besh nvalidi stage PFE, chnowa exactement naamel ?",
+                  
+                  "stage", "demande_stage", "PFE", "validation", "entreprise", "imprimer", "carte", "CIN"
+                ],
+                "responses": [
+                  "Pour valider un stage obligatoire ou PFE, imprimez une demande de stage depuis le site de la faculté ou à la bibliothèque Basma. Faites-la remplir et signer par l'entreprise d'accueil, puis apportez-la à la direction des stages située à côté de la buvette pour validation.",
+                  "Vous pouvez imprimer la demande de stage depuis le site de la faculté ou à la bibliothèque Basma. Une fois remplie et signée par l'entreprise d'accueil, apportez-la à la direction des stages (à côté de la buvette) pour validation.",
+                  "Kifach taamel stage ? Imprimer demande mel site de faculté wala mel biblio Basma. Baad, khalli l'entreprise d'accueil tamlaaha w taamel signature, w mchii biha lel direction des stages (janb buvette) pour validation.",
+                  "Pour PFE ou stage obligatoire, demande de stage tji mel site ou bibliothèque Basma. Ensuite, jibha remplie et signée lil direction des stages à la faculté pour validation."
+                ]
+              },
+              {
+                "tag": "faq",
+                "patterns": [
+                    "Quels sont les horaires d'ouverture de l'administration ?", 
+                    "Quand est-ce que l'administration est ouverte ?", 
+                    "Quels jours l'administration est-elle fermée ?", 
+                    "Est-ce que l'administration est ouverte pendant les vacances ?", 
+                    "Y a-t-il des horaires spéciaux pour l'administration ?", 
+                    "L'administration est-elle ouverte le week-end ?", 
+                    "Est-ce que je peux prendre rendez-vous avec l'administration ?", 
+                    "Quels sont les horaires d'été de l'administration ?", 
+                    "L'administration est-elle ouverte pendant les jours fériés ?", 
+                    "Est-ce que je peux contacter l'administration par téléphone ?", 
+                    "Chnowa les horaires mta3 administration ?", 
+                    "Administration maftouha w9tah ?", 
+                    "Administration teshd 3lech week-end wla ma teshedch ?", 
+                    "Horaires d'été administration chnowa ?", 
+                    "Najem nkallem administration par téléphone ?",
+                    
+                    "horaire", "ouverture", "vacances", "semaine", "weekend", "jour_ferie", "rendezvous", "contact", "telephone"
+                ],
+                "responses": [
+                    "L'administration est ouverte du lundi au vendredi, de 9h à 12h. Elle est fermée le week-end et pendant les jours fériés.",
+                    "Horaires : Lundi-Vendredi, 9h-12h. Fermée week-end et jours fériés.",
+                    "Maw3id el administration : men ethnin lil jem3a, 9h-12h. Maftouha lé week-end w jours fériés ma teshedch.",
+                    "Pour contacter l'administration, appelez le numéro affiché sur le site officiel ou rendez-vous sur place pendant les heures d'ouverture.",
+                    "Horaires administration : men ethnin lil jem3a, 9h-12h. Fermée week-end w jouret t3atel."
+                ]
+            },
+            {
+                "tag": "inscription",
+                "patterns": [
+                    "Comment s'inscrire à la faculté ?", 
+                    "Où puis-je trouver les procédures d'inscription ?", 
+                    "Quels sont les documents nécessaires pour l'inscription ?", 
+                    "Y a-t-il un lien pour consulter les informations sur l'inscription ?", 
+                    "Quel est le dernier délai pour l'inscription ?", 
+                    "Comment faire pour finaliser mon inscription universitaire ?", 
+                    "Où trouver les détails sur les inscriptions universitaires ?", 
+                    "Kifach naamel inscription ?", 
+                    "Chnowa les papiers nécessaires lil inscription ?", 
+                    "Ou nal9a les détails mta3 inscription ?", 
+                    "Ou9tah le deadline lil inscription ?", 
+                    "Fama lien bach nji les informations inscription ?",
+                    
+                    "inscription", "documents", "deadline", "lien", "finaliser", "information", "détails", "site"
+                ],
+                "responses": [
+                    "Pour les détails concernant l'inscription, les procédures et les deadlines, consultez ce lien : [fst.rnu.tn/uploads/files/بلاغ%20التسجيل%20الجامعي%202024-2025(3).doc](https://fst.rnu.tn/uploads/files/%D8%A8%D9%84%D8%A7%D8%BA%20%D8%A7%D9%84%D8%AA%D8%B3%D8%AC%D9%8A%D9%84%20%D8%A7%D9%84%D8%AC%D8%A7%D9%85%D8%B9%D9%8A%202024-2025(3).doc).",
+                    "Pour savoir comment s'inscrire et connaître les deadlines, rendez-vous sur ce lien : [fst.rnu.tn/uploads/files/بلاغ%20التسجيل%20الجامعي%202024-2025(3).doc](https://fst.rnu.tn/uploads/files/%D8%A8%D9%84%D8%A7%D8%BA%20%D8%A7%D9%84%D8%AA%D8%B3%D8%AC%D9%8A%D9%84%20%D8%A7%D9%84%D8%AC%D8%A7%D9%85%D8%B9%D9%8A%202024-2025(3).doc).",
+                    "Les procédures et les délais d'inscription sont disponibles ici : [fst.rnu.tn/uploads/files/بلاغ%20التسجيل%20الجامعي%202024-2025(3).doc](https://fst.rnu.tn/uploads/files/%D8%A8%D9%84%D8%A7%D8%BA%20%D8%A7%D9%84%D8%AA%D8%B3%D8%AC%D9%8A%D9%84%20%D8%A7%D9%84%D8%AC%D8%A7%D9%85%D8%B9%D9%8A%202024-2025(3).doc).",
+                    "Kifach taamel inscription ? Koul détails wela procédure ou9tah le deadline, tji fihom fi lien : [fst.rnu.tn/uploads/files/بلاغ%20التسجيل%20الجامعي%202024-2025(3).doc](https://fst.rnu.tn/uploads/files/%D8%A8%D9%84%D8%A7%D8%BA%20%D8%A7%D9%84%D8%AA%D8%B3%D8%AC%D9%8A%D9%84%20%D8%A7%D9%84%D8%AC%D8%A7%D9%85%D8%B9%D9%8A%202024-2025(3).doc)."
+                ]
+            },
+
+
+
+
+
+
+            {
+                "tag": "salles_navigation",
+                "patterns": [
+                    "Où se trouve le département de sciences informatiques ?",
+                    "Le département de mathématiques est où ?",
+                    "Où est le département de chimie ?",
+                    "Comment accéder au département de physique ?",
+                    "Le département de SVT est situé où ?",
+                    "Le département de biologie est où exactement ?",
+                    "Où se trouve l'administration centrale ?",
+                    "À quel étage se trouve la bibliothèque ?",
+                    "La buvette est à quel étage ?",
+                    "Qu'est-ce que la place rouge ?",
+                    "Quels sont les points de repère pour naviguer dans la FST ?",
+                    "Chnowa mawdhou3 département sc info fi FST ?",
+                    "Fiin nal9a département math ?",
+                    "Ou nal9a département chimie ?",
+                    "Bach nji département physique, chnowa el chemin ?",
+                    "Département SVT mawjouda fiin ?",
+                    "Département biologie fiin mawjouda ?",
+                    "Chnowa el fonction ta administration centrale ?",
+                    "Chnowa li ykoun fi étage biblio ?",
+                    "Chnowa li ykoun fi étage buvette ?",
+                    "Fama place rouge fi FST ? Ou9tah naamel biha ?"
+                ],
+                "responses": [
+                    "Voici la carte des départements et espaces de la FST :\n\n- **Département de sciences informatiques** : Situé à droite en entrant depuis la place rouge.\n- **Département de mathématiques** : À gauche en entrant depuis la place rouge.\n- **Département de chimie** : Vers le fond à droite après le département de sciences informatiques.\n- **Département de physique** : À gauche, à côté du département de mathématiques.\n- **Département de SVT** : Dans le bâtiment à gauche après le département de physique.\n- **Département de biologie** : À côté du département SVT.\n\n**Administration centrale** : Située au rez-de-chaussée.\n\n**Premier étage** : Documents administratifs.\n\n**Deuxième étage** : Bibliothèque.\n\n**Buvette** : Deuxième étage, près de la bibliothèque.\n\n**Place rouge** : Le point central de la faculté et notre référentiel principal pour la navigation.",
+                    "Départements et espaces FST :\n- Département informatique : droite après place rouge.\n- Département maths : gauche après place rouge.\n- Département chimie : au fond à droite.\n- Département physique : gauche après maths.\n- Département SVT et biologie : gauche après physique.\n\nAdministration : rez-de-chaussée.\n- 1er étage : Documents administratifs.\n- 2ème étage : Bibliothèque et buvette.\n- Place rouge : Point central.",
+                    "Kifach tal9a les départements fi FST ?\n- Sc informatique : droite après place rouge.\n- Mathématiques : gauche place rouge.\n- Chimie : fond droite place rouge.\n- Physique : gauche place rouge, après maths.\n- SVT : gauche après physique.\n- Biologie : après SVT.\n\nAdministration : rez-de-chaussée.\n- 1er étage : documents administratifs.\n- 2ème étage : biblio et buvette.\n- Place rouge : référence ta3 chemin principal.",
+                    "Fi FST :\n- Départements sc info, math, chimie, physique, SVT, biologie mawjouda hawlé place rouge.\n- Administration : rez-de-chaussée.\n- Étage 1 : papiers.\n- Étage 2 : bibliothèque et buvette. Place rouge houwa référentiel li nchirou biha fi chemin."
+                ]
+            },
+            {
+                "tag": "not_understood",
+                "patterns": [
+                    "Je ne comprends pas",
+                    "Ce n'est pas clair",
+                    "Peux-tu reformuler ?",
+                    "Je n'ai pas compris",
+                    "C'est quoi ça ?",
+                    "Chnowa ?",
+                    "Mafhemtch",
+                    "C'est pas ce que je voulais dire",
+                    "Comment ?",
+                    "Je ne sais pas quoi faire",
+                    "Aide-moi"
+                ],
+                "responses": [
+                    "Je suis désolé, je n'ai pas compris votre demande. Pouvez-vous reformuler ou poser votre question autrement ?",
+                    "Désolé, je ne comprends pas. Essayez de poser une autre question ou d'être plus précis.",
+                    "Mafhemtch bien chnowa t7eb taamel. Najem t3awed t9oulha bel moudhak ?",
+                    "A3tini akther détails wla khoud direction elli njem na3tiha lik.",
+                    "Je ne suis pas sûr de ce que vous cherchez. Pouvez-vous être plus spécifique ?"
+                ]
+            }
+            
+        ]
+    }
+}

@@ -12,7 +12,7 @@ nltk.download('punkt')
 nltk.download('wordnet')
 
 class ChatBotService:
-    def __init__(self, data_file_path='data.json'):
+    def __init__(self, data_file_path):
         self.lemmatizer = WordNetLemmatizer()
         self.ignore_words = ['?', '!', '.', ',', "'s", "'m", "'re", "'ll", "'ve", "'d", "'t"]
         

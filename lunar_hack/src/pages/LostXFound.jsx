@@ -107,7 +107,7 @@ const LostAndFound = () => {
                     className="h-10 transition-all hover:scale-105 hover:opacity-90 active:scale-95"
                 />
                 <h1 className="text-xl font-bold text-gray-800 bg-gradient-to-r from-blue-600 to-green-500 bg-clip-text text-transparent">
-                    Smart Campus
+                    Compus Compass
                 </h1>
                 </div>
                 <button className="p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
@@ -135,7 +135,7 @@ const LostAndFound = () => {
 
                 {/* Center - Title */}
                 <h1 className="text-2xl md:text-3xl font-bold text-gray-800 bg-gradient-to-r from-blue-600 to-green-500 bg-clip-text text-transparent">
-                Smart Campus 
+                Compus Compass 
                 </h1>
 
                 {/* Right side - Lost & Found + Logo */}
@@ -215,7 +215,7 @@ const LostAndFound = () => {
                       <div className="flex flex-col sm:flex-row gap-4">
                         <div className="w-full sm:w-32 h-32 bg-gray-100 rounded-lg overflow-hidden">
                           <img 
-                            src={item.image} 
+                            src="./unknown.png" 
                             alt={item.description} 
                             className="w-full h-full object-cover"
                           />

@@ -82,8 +82,11 @@ def extract_start_end(text):
 
     for k, v in dialect_mapping.items():
         text = text.replace(k, v)
+    
+    print(f"Processed text: {text}")
 
     found = [key for key in buildings if key in text]
+    print(f"Found locations: {found}")
 
     # NEW CASE: Same location repeated (e.g. "from cafeteria to cafeteria")
     if len(found) == 1 and text.count(found[0]) > 1:
@@ -91,27 +94,27 @@ def extract_start_end(text):
         return location, location
 
     if len(found) >= 2:
-        # Heuristic: try to detect direction from phrasing
-        from_index = text.find(found[0])
-        to_index = text.find(found[1])
-
-        # Ensure correct start and end detection based on "from" and "to"
+        # Get the matched location names
+        start_location = found[0]
+        end_location = found[1]
+        
+        # Check for "from X to Y" pattern
         if 'from' in text and 'to' in text:
- 
-            if text.find('from') < text.find('to'):
-                
-                start, end = found[0], found[1]
-            else:
-                start, end = found[1], found[0]
-        elif 'from' in text:
-            start, end = found[0], found[1]
-        elif 'to' in text:
-            start, end = found[0], found[1]
-        else:
-            # fallback to order in text
-            start, end = found[0], found[1]
-
-        return buildings[start], buildings[end]
+            # Find indices
+            from_index = text.find('from')
+            to_index = text.find('to')
+            
+            # Check what locations are mentioned after "from" and "to"
+            locations_after_from = [loc for loc in found if text.find(loc) > from_index and 
+                                   (to_index == -1 or text.find(loc) < to_index)]
+            
+            locations_after_to = [loc for loc in found if text.find(loc) > to_index]
+            
+            if locations_after_from and locations_after_to:
+                start_location = locations_after_from[0]
+                end_location = locations_after_to[0]
+            
+        return buildings[start_location], buildings[end_location]
 
     if len(found) == 1:
         current = buildings[found[0]]
@@ -121,7 +124,7 @@ def extract_start_end(text):
 
 def get_navigation_instruction(start, end, matrix):
     if start == end:
-        return f"🚩 You're already at {start}."
+        return f"⚠️ You're already at {start}!"
 
     if matrix.get(start, {}).get(end) is not None:
         distance = matrix[start][end]
@@ -146,10 +149,3 @@ def ask_bot(user_input):
         return get_navigation_instruction(start, end, distance_matrix)
     except Exception as e:
         return f"❓ Sorry, I couldn't understand. Please specify buildings. ({str(e)})"
-
-# distance.py
-
-
-
-
-

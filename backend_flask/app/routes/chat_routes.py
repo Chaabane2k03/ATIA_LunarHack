@@ -1,9 +1,13 @@
 from flask import Blueprint, request, jsonify
+import os
 from app.services.chatbot_service import ChatBotService
 from app.services.localisation_service import *
 
-# Instantiate ChatbotModel (ensures model is loaded or trained)
-chatbot_model = ChatBotService("./data.json")
+# Get absolute path to data.json
+current_dir = os.path.dirname(os.path.abspath(__file__))
+data_file_path = os.path.normpath(os.path.join(current_dir, '..', '..', 'data.json'))
+
+chatbot_model = ChatBotService(data_file_path)
 
 bp = Blueprint("chat", __name__)
 

@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import LogoUTM from '/UTM.png';
+import LogoMin from '/Ministre.png';
 export default function LandingPage() {
   return (
     <div className="min-h-screen w-screen bg-gradient-to-br from-gray-50 to-gray-200">
@@ -8,12 +10,12 @@ export default function LandingPage() {
       <div className="w-full flex justify-between items-center sm:hidden">
         <div className="flex items-center space-x-3">
           <img 
-            src="/UTM.png" 
+            src={LogoUTM}
             alt="University Logo" 
             className="h-10 transition-all hover:scale-105 hover:opacity-90 active:scale-95"
           />
           <h1 className="text-xl font-bold text-gray-800 bg-gradient-to-r from-blue-600 to-green-500 bg-clip-text text-transparent">
-            Smart Campus
+            Campus Compass
           </h1>
         </div>
         <button className="p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
@@ -41,7 +43,7 @@ export default function LandingPage() {
 
         {/* Center - Title */}
         <h1 className="text-2xl md:text-3xl font-bold text-gray-800 bg-gradient-to-r from-blue-600 to-green-500 bg-clip-text text-transparent">
-          Smart Campus 
+          Campus Compass 
         </h1>
 
         {/* Right side - Lost & Found + Logo */}
@@ -52,7 +54,7 @@ export default function LandingPage() {
             </div>
           </Link>
           <img 
-            src="/Ministre.png" 
+            src={LogoMin}
             alt="Ministry Logo" 
             className="h-12 transition-all hover:scale-105 hover:opacity-90 active:scale-95" 
           />
