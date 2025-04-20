@@ -1,12 +1,46 @@
-# React + Vite
+Project Name
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack web application with React frontend, Flask backend, and PostgreSQL database.
 
-Currently, two official plugins are available:
+## Quick Start
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. **Install dependencies:**
+   ```bash
+   cd frontend && npm install
+   cd ../backend && pip install -r requirements.txt
+Set up PostgreSQL:
 
-## Expanding the ESLint configuration
+Create a database
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Update connection in backend/.env
+
+Run development servers:
+
+Frontend: cd frontend && npm run dev (localhost:3000)
+
+Backend: cd backend && flask run (localhost:5000)
+
+Project Structure
+frontend/     # React app (run with `npm run dev`)
+backend/      # Flask API (run with `flask run`)
+Environment Setup
+Create .env in /backend:
+
+env
+DATABASE_URL=postgresql://user:pass@localhost/db_name
+FLASK_APP=app.py
+FLASK_ENV=development
+Requirements
+Node.js (v16+)
+
+Python (3.8+)
+
+PostgreSQL
+
+
+This keeps it minimal while covering the essentials. Let me know if you'd like to add:
+- Deployment instructions
+- API documentation examples
+- Screenshots
+- Contribution guidelines
+- License info
