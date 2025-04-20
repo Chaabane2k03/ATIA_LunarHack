@@ -1,0 +1,10 @@
+{
+  "département informatique": "Le département informatique se trouve au 2ème étage du bâtiment des sciences. Il dispose de 10 salles de TP, 5 salles de cours et 3 amphithéâtres. Les bureaux des professeurs sont situés au même étage. Horaires d'ouverture: 8h-20h du lundi au vendredi.",
+  "département mathématiques": "Le département de mathématiques est situé au 1er étage du bâtiment des sciences. Il comprend 8 salles de cours, 2 salles de séminaires et une bibliothèque spécialisée. Les bureaux des enseignants-chercheurs sont répartis sur le même étage.",
+  "bibliothèque": "La bibliothèque universitaire est ouverte de 8h à 22h. Elle dispose de 500 places assises, de 50 ordinateurs en libre service et d'une collection de plus de 100 000 ouvrages. Des salles de travail en groupe peuvent être réservées en ligne.",
+  "cafétéria": "La cafétéria est située au rez-de-chaussée du bâtiment principal. Elle est ouverte de 7h30 à 18h et propose des sandwichs, salades, plats chauds et boissons. Des micro-ondes sont également disponibles pour les étudiants apportant leur propre repas.",
+  "laboratoire chimie": "Le laboratoire de chimie est équipé de matériel moderne pour les analyses chimiques. L'accès est restreint aux étudiants accompagnés d'un responsable. Des équipements de protection sont obligatoires pour accéder aux salles d'expérimentation.",
+  "amphithéâtre a": "L'amphithéâtre A a une capacité de 300 places et est équipé d'un système audiovisuel complet. Il est généralement utilisé pour les cours magistraux des premières années et les conférences publiques.",
+  "salle 101": "Salle de cours standard d'une capacité de 40 étudiants située au 1er étage du bâtiment principal. Elle est équipée d'un vidéoprojecteur et d'un tableau blanc interactif.",
+  "hall d'entrée": "Le hall d'entrée du bâtiment principal est le point central du campus. Vous y trouverez le bureau d'accueil, les panneaux d'information et l'accès aux principaux services administratifs."
+}
