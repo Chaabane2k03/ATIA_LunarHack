@@ -4,7 +4,7 @@ from app import db
 
 bp = Blueprint("lost", __name__)
 
-@bp.route('/lost', methods=['POST'])
+@bp.route('/report_lost', methods=['POST'])
 def report_lost_item():
     data = request.get_json()
     item = LostItem(
@@ -16,7 +16,7 @@ def report_lost_item():
     db.session.commit()
     return jsonify({"message": "Item reported lost"}), 201
 
-@bp.route('/lost', methods=['GET'])
+@bp.route('/get_lost', methods=['GET'])
 def get_lost_items():
     items = LostItem.query.all()
     return jsonify([{
