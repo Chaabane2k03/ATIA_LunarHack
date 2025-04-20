@@ -1,0 +1,112 @@
+{
+  "buildings": [
+    "principal",
+    "sciences"
+  ],
+  "connections": {
+    "hall": [
+      {
+        "to": "biblio",
+        "distance": 2
+      },
+      {
+        "to": "cafe",
+        "distance": 1
+      },
+      {
+        "to": "s101",
+        "distance": 3
+      }
+    ],
+    "biblio": [
+      {
+        "to": "hall",
+        "distance": 2
+      },
+      {
+        "to": "s101",
+        "distance": 1
+      }
+    ],
+    "cafe": [
+      {
+        "to": "hall",
+        "distance": 1
+      },
+      {
+        "to": "amphi_a",
+        "distance": 4
+      }
+    ],
+    "s101": [
+      {
+        "to": "biblio",
+        "distance": 1
+      },
+      {
+        "to": "hall",
+        "distance": 3
+      }
+    ],
+    "amphi_a": [
+      {
+        "to": "cafe",
+        "distance": 4
+      },
+      {
+        "to": "info",
+        "distance": 2
+      },
+      {
+        "to": "labo_chim",
+        "distance": 3
+      },
+      {
+        "to": "math",
+        "distance": 2
+      }
+    ],
+    "info": [
+      {
+        "to": "amphi_a",
+        "distance": 2
+      },
+      {
+        "to": "labo_chim",
+        "distance": 1
+      },
+      {
+        "to": "math",
+        "distance": 3
+      }
+    ],
+    "labo_chim": [
+      {
+        "to": "info",
+        "distance": 1
+      },
+      {
+        "to": "amphi_a",
+        "distance": 3
+      },
+      {
+        "to": "math",
+        "distance": 2
+      }
+    ],
+    "math": [
+      {
+        "to": "labo_chim",
+        "distance": 2
+      },
+      {
+        "to": "amphi_a",
+        "distance": 2
+      },
+      {
+        "to": "info",
+        "distance": 3
+      }
+    ]
+  }
+}

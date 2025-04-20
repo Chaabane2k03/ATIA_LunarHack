@@ -1,0 +1,50 @@
+{
+  "hall d'entrée": {
+    "id": "hall",
+    "building": "principal",
+    "floor": 0,
+    "type": "entrance"
+  },
+  "bibliothèque": {
+    "id": "biblio",
+    "building": "principal",
+    "floor": 1,
+    "type": "facility"
+  },
+  "département informatique": {
+    "id": "info",
+    "building": "sciences",
+    "floor": 2,
+    "type": "department"
+  },
+  "département mathématiques": {
+    "id": "math",
+    "building": "sciences",
+    "floor": 1,
+    "type": "department"
+  },
+  "salle 101": {
+    "id": "s101",
+    "building": "principal",
+    "floor": 1,
+    "type": "classroom"
+  },
+  "cafétéria": {
+    "id": "cafe",
+    "building": "principal",
+    "floor": 0,
+    "type": "facility"
+  },
+  "amphithéâtre a": {
+    "id": "amphi_a",
+    "building": "sciences",
+    "floor": 0,
+    "type": "classroom"
+  },
+  "laboratoire chimie": {
+    "id": "labo_chim",
+    "building": "sciences",
+    "floor": 1,
+    "type": "laboratory"
+  }
+}
