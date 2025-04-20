@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { decode } from 'he'; // Install `he` library: npm install he
+import { decode } from 'he'; // Installez `he` avec : npm install he
 
 const SmartBot = () => {
     const [messages, setMessages] = useState([
@@ -8,6 +8,7 @@ const SmartBot = () => {
     ]);
     const [inputValue, setInputValue] = useState('');
     const [isLoading, setIsLoading] = useState(false);
+    const [selectedOption, setSelectedOption] = useState(null);
 
     const suggestions = [
         "attestation de présence ?",
@@ -16,9 +17,19 @@ const SmartBot = () => {
         "Merci !",
     ];
 
+    const administrativeOptions = [
+        "Documents administratifs",
+        "Find campus locations",
+    ];
+
     const handlePromptResponse = (rawResponse) => {
         return decode(rawResponse.replace(/â€™/g, "'").replace(/Ã©/g, "é").replace(/Ã /g, "à"));
     };
+
+    const handleSelect = (e, value) => {
+        e.preventDefault();
+        setSelectedOption(value);
+    }
 
     const handleSubmit = async (e, predefinedMessage = null) => {
         e.preventDefault();
@@ -26,14 +37,20 @@ const SmartBot = () => {
 
         if (!messageToSend.trim()) return;
 
-        // Add user message
+        // Ajouter le message de l'utilisateur
         const userMessage = { text: messageToSend, sender: 'user' };
         setMessages((prev) => [...prev, userMessage]);
         setInputValue('');
         setIsLoading(true);
 
         try {
-            const response = await fetch('http://127.0.0.1:5000/prompt', {
+            // Déterminer l'endpoint en fonction du message
+            const endpoint =
+                selectedOption === "Documents administratifs"
+                    ? 'http://127.0.0.1:5000/prompt'
+                    : 'http://127.0.0.1:5000/guide';
+
+            const response = await fetch(endpoint, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ message: messageToSend }),
@@ -44,16 +61,16 @@ const SmartBot = () => {
             }
 
             const data = await response.json();
-            const botMessage = { 
-                text: handlePromptResponse(data.response) || 'I am sorry, I could not understand that.', 
-                sender: 'bot' 
+            const botMessage = {
+                text: handlePromptResponse(data.response) || 'I am sorry, I could not understand that.',
+                sender: 'bot',
             };
             setMessages((prev) => [...prev, botMessage]);
         } catch (error) {
             console.error('Error:', error);
             setMessages((prev) => [
                 ...prev,
-                { text: 'Oops! Something went wrong. Please try again later.', sender: 'bot' }
+                { text: 'Oops! Something went wrong. Please try again later.', sender: 'bot' },
             ]);
         } finally {
             setIsLoading(false);
@@ -63,63 +80,38 @@ const SmartBot = () => {
     return (
         <div className="min-h-screen w-screen bg-gradient-to-br from-gray-50 to-gray-200">
             <nav className="bg-white/90 backdrop-blur-lg py-3 px-4 sm:px-8 flex flex-col sm:flex-row justify-between items-center sticky top-0 z-50 border-b border-gray-200/70 shadow-sm">
-                  {/* Mobile Header */}
-                  <div className="w-full flex justify-between items-center sm:hidden">
-                    <div className="flex items-center space-x-3">
-                      <img 
-                        src="/UTM.png" 
-                        alt="University Logo" 
-                        className="h-10 transition-all hover:scale-105 hover:opacity-90 active:scale-95"
-                      />
-                      <h1 className="text-xl font-bold text-gray-800 bg-gradient-to-r from-blue-600 to-green-500 bg-clip-text text-transparent">
-                        Smart Campus
-                      </h1>
-                    </div>
-                    <button className="p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                      </svg>
-                    </button>
-                  </div>
-            
-                  {/* Desktop Header */}
-                  <div className="hidden sm:flex w-full justify-between items-center">
-                    {/* Left side - Logo + Smart Bot */}
+                <div className="hidden sm:flex w-full justify-between items-center">
                     <div className="flex items-center space-x-6">
-                      <img 
-                        src="/UTM.png" 
-                        alt="University Logo" 
-                        className="h-12 transition-all hover:scale-105 hover:opacity-90 active:scale-95"
-                      />
-                      <Link to="/smart-bot" >
-                        <div className="cursor-pointer px-4 py-2 rounded-lg text-gray-700 hover:text-blue-600 hover:bg-blue-50/70 transition-all duration-200 font-medium shadow-sm hover:shadow-md active:scale-95">
-                          Smart Bot
-                        </div>
-                      </Link>
+                        <img 
+                            src="/UTM.png" 
+                            alt="University Logo" 
+                            className="h-12 transition-all hover:scale-105 hover:opacity-90 active:scale-95"
+                        />
+                        <Link to="/smart-bot" >
+                            <div className="cursor-pointer px-4 py-2 rounded-lg text-gray-700 hover:text-blue-600 hover:bg-blue-50/70 transition-all duration-200 font-medium shadow-sm hover:shadow-md active:scale-95">
+                                Smart Bot
+                            </div>
+                        </Link>
                     </div>
-            
-                    {/* Center - Title */}
                     <h1 className="text-2xl md:text-3xl font-bold text-gray-800 bg-gradient-to-r from-blue-600 to-green-500 bg-clip-text text-transparent">
-                      Smart Campus 
+                        Smart Campus 
                     </h1>
-            
-                    {/* Right side - Lost & Found + Logo */}
                     <div className="flex items-center space-x-6">
-                      <Link to="/lost-found" >
-                        <div className="cursor-pointer px-4 py-2 rounded-lg text-gray-700 hover:text-green-600 hover:bg-green-50/70 transition-all duration-200 font-medium shadow-sm hover:shadow-md active:scale-95">
-                          Lost & Found
-                        </div>
-                      </Link>
-                      <img 
-                        src="/Ministre.png" 
-                        alt="Ministry Logo" 
-                        className="h-12 transition-all hover:scale-105 hover:opacity-90 active:scale-95" 
-                      />
+                        <Link to="/lost-found" >
+                            <div className="cursor-pointer px-4 py-2 rounded-lg text-gray-700 hover:text-green-600 hover:bg-green-50/70 transition-all duration-200 font-medium shadow-sm hover:shadow-md active:scale-95">
+                                Lost & Found
+                            </div>
+                        </Link>
+                        <img 
+                            src="/Ministre.png" 
+                            alt="Ministry Logo" 
+                            className="h-12 transition-all hover:scale-105 hover:opacity-90 active:scale-95" 
+                        />
                     </div>
-                  </div>
-                </nav>
+                </div>
+            </nav>
 
-            <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 ">
+            <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6">
                 <div className="bg-white rounded-xl shadow-md overflow-hidden h-150">
                     <div className="h-96 p-4 overflow-y-auto space-y-4">
                         {messages.map((message, index) => (
@@ -147,7 +139,6 @@ const SmartBot = () => {
                             </div>
                         )}
                     </div>
-
                     <div className="border-t border-gray-200 p-4">
                         <div className="flex flex-wrap gap-2 mb-4">
                             {suggestions.map((suggestion, index) => (
@@ -160,7 +151,18 @@ const SmartBot = () => {
                                 </button>
                             ))}
                         </div>
-
+                        <div className="mb-4">
+                            <select
+                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                onChange={(e) => handleSelect(e, e.target.value)}
+                                defaultValue=""
+                            >
+                                <option value="" disabled>Select an administrative option</option>
+                                {administrativeOptions.map((option, index) => (
+                                    <option key={index} value={option}>{option}</option>
+                                ))}
+                            </select>
+                        </div>
                         <form onSubmit={handleSubmit} className="flex space-x-2">
                             <input
                                 type="text"
@@ -192,14 +194,6 @@ const SmartBot = () => {
                     </div>
                 </div>
             </div>
-            <footer className="bg-white/80 backdrop-blur-md py-4 px-6 border-t border-gray-200 absolute bottom-0 w-full">
-                <div className="max-w-6xl mx-auto flex flex-col justify-center md:flex-row justify-between items-center">
-                <p className="text-gray-600 text-sm mb-2 md:mb-0">
-                    © {new Date().getFullYear()} Campus Compass . All rights reserved.
-                </p>
-                
-                </div>
-            </footer>
         </div>
     );
 };
