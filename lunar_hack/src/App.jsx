@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
 import SmartBot from './pages/SmartBot';
 import LostXFound from './pages/LostXFound';
-import Login from './pages/login';
+import Login from './pages/Login';
 
 
 function App() {

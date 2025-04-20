@@ -3,3 +3,5 @@ flask_sqlalchemy
 psycopg2-binary
 python-dotenv
 werkzeug
+flask-cors
+flask-migrate
