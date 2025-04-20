@@ -5,3 +5,9 @@ python-dotenv
 werkzeug
 flask-cors
 flask-migrate
+sentence-transformers
+tf-keras
+torch
+torchvision 
+transformers 
+pillow

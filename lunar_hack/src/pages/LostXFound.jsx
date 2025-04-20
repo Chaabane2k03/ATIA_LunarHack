@@ -15,40 +15,41 @@ const LostAndFound = () => {
   const [foundDate, setFoundDate] = useState('');
   const [foundDescription, setFoundDescription] = useState('');
   const [previewImage, setPreviewImage] = useState(null);
-
+  
   // Mock function to simulate backend search
   const searchLostItems = async (query) => {
     setIsLoading(true);
-    // Simulate API call delay
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    // Mock response data
-    const mockResults = [
-      {
-        id: 1,
-        name: "Black Wallet",
-        description: "Black leather wallet with 3 credit cards and ID",
-        location: "Library - 2nd floor",
-        date: "2023-05-15",
-        image: "/wallet-placeholder.jpg",
-        contact: "security@campus.edu"
+  try {
+    const response = await fetch('http://localhost:5000/get_lost', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
       },
-      {
-        id: 2,
-        name: "Water Bottle",
-        description: "Blue Hydro Flask with campus logo sticker",
-        location: "Gym - Locker room",
-        date: "2023-05-14",
-        image: "/bottle-placeholder.jpg",
-        contact: "reception@gym.campus.edu"
-      }
-    ].filter(item => 
-      item.name.toLowerCase().includes(query.toLowerCase()) || 
-      item.description.toLowerCase().includes(query.toLowerCase())
-    );
+      body: JSON.stringify({ description: query }),
+    });
+
+    const data = await response.json();
+    console.log('Matched Items:', data);
+
+    setSearchResults(data.map((item, index) => {
+      const fixedPath = item.image_url.startsWith('.') 
+        ? item.image_url.slice(1) 
+        : item.image_url;
     
-    setSearchResults(mockResults);
-    setIsLoading(false);
+      return {
+        id: index,
+        name: "Item Found",
+        description: item.description,
+        date: item.date_found,
+        image: `../../../../../ATIA_LunarHack/backend_flask${fixedPath.replace(/\\/g, '/')}`,
+        contact: item.reporter_email
+      };
+    }));
+    console.log('Search results:', searchResults);
+  } catch (error) {
+    console.error("Search failed", error);
+  }
+  setIsLoading(false);
   };
 
   const handleImageUpload = (e) => {
@@ -56,31 +57,42 @@ const LostAndFound = () => {
     if (file) {
       setItemImage(file);
       setPreviewImage(URL.createObjectURL(file));
+      console.log('Image selected:', URL.createObjectURL(file));
     }
   };
 
-  const submitFoundItem = (e) => {
+  const submitFoundItem = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-    // Here you would normally send to backend
-    console.log({
-      image: itemImage,
-      location: foundLocation,
-      date: foundDate,
-      description: foundDescription
-    });
-    
-    // Simulate submission
-    setTimeout(() => {
+  
+    try {
+      const formData = new FormData();
+      formData.append('image', itemImage);
+      formData.append('date', foundDate);
+      formData.append('id', sessionStorage.getItem('userDetails'));
+  
+      const response = await fetch('http://localhost:5000/report_lost', {
+        method: 'POST',
+        body: formData,
+      });
+  
+      const data = await response.json();
+      console.log('Upload success:', data);
+  
       alert('Thank you! Your found item report has been submitted.');
       setItemImage(null);
       setPreviewImage(null);
       setFoundLocation('');
       setFoundDate('');
       setFoundDescription('');
-      setIsLoading(false);
-    }, 1500);
+    } catch (error) {
+      console.error("Upload failed", error);
+      alert("Something went wrong. Please try again.");
+    }
+  
+    setIsLoading(false);
   };
+  
 
   return (
     <div className="min-h-screen w-screen bg-gradient-to-br from-gray-50 to-gray-200">
@@ -204,18 +216,18 @@ const LostAndFound = () => {
                         <div className="w-full sm:w-32 h-32 bg-gray-100 rounded-lg overflow-hidden">
                           <img 
                             src={item.image} 
-                            alt={item.name} 
+                            alt={item.description} 
                             className="w-full h-full object-cover"
                           />
                         </div>
                         <div className="flex-1">
                           <h4 className="font-semibold text-lg text-gray-800">{item.name}</h4>
                           <p className="text-gray-600 mb-2">{item.description}</p>
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm">
-                            <div className="flex items-center text-gray-500">
+                          <div className="grid grid-cols-1 md:grid-cols-1 gap-2 text-sm">
+                            {/* <div className="flex items-center text-gray-500">
                               <FiMapPin className="mr-2" />
                               Found at: {item.location}
-                            </div>
+                            </div> */}
                             <div className="flex items-center text-gray-500">
                               <FiCalendar className="mr-2" />
                               Date found: {item.date}
@@ -272,7 +284,8 @@ const LostAndFound = () => {
                 </div>
                 
                 {/* Form Fields */}
-                <div className="space-y-4">
+                <div className="space-y-8">
+                  <div className='h-8'></div>
                   <div>
                     <label htmlFor="location" className="block text-sm font-medium text-gray-700 mb-1">
                       <FiMapPin className="inline mr-2" />
@@ -304,20 +317,6 @@ const LostAndFound = () => {
                     />
                   </div>
                   
-                  <div>
-                    <label htmlFor="description" className="block text-sm font-medium text-gray-700 mb-1">
-                      <FiInfo className="inline mr-2" />
-                      Additional Description
-                    </label>
-                    <textarea
-                      id="description"
-                      value={foundDescription}
-                      onChange={(e) => setFoundDescription(e.target.value)}
-                      placeholder="Color, brand, distinguishing features..."
-                      rows="3"
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                    />
-                  </div>
                 </div>
               </div>
               
