@@ -23,22 +23,43 @@ const Login = () => {
       }
     }, [error]);
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    console.log("hello")
-    const allowedDomain = "@etudiant-fst.utm.tn";
-  
-    if (!email.endsWith(allowedDomain)) {
-      setError(`Veuillez utiliser une adresse mail se terminant par ${allowedDomain}`);
-      return;
-    }
-  
-    setIsLoading(true);
-    setTimeout(() => {
-      console.log('Connexion avec:', { email, password });
-      setIsLoading(false);
-    }, 1500);
-  };
+    const handleLogin = async (e) => {
+      e.preventDefault();
+      const allowedDomain = "@etudiant-fst.utm.tn";
+    
+      if (!email.endsWith(allowedDomain)) {
+        setError(`Veuillez utiliser une adresse mail se terminant par ${allowedDomain}`);
+        return;
+      }
+    
+      setIsLoading(true);
+      setError(null);
+    
+      try {
+        const response = await fetch('http://localhost:5000/signup', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email, password }),
+        });
+    
+        const data = await response.json();
+    
+        if (response.ok) {
+          console.log('User created:', data);
+          // Do something: redirect or update state
+        } else {
+          setError(data.error || 'Signup failed');
+        }
+      } catch (err) {
+        console.error('Erreur lors de la requête :', err);
+        setError('Erreur serveur');
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    
 
   return (
     <div className="flex items-center justify-center w-screen h-full min-h-screen bg-gradient-to-tr from-blue-100 via-white to-indigo-100 px-4">

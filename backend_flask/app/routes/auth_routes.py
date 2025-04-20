@@ -25,21 +25,9 @@ def signup():
 @bp.route('/login', methods=['POST'])
 def login():
     data = request.get_json()
-    user = User.query.filter_by(username=data['username']).first()
+    user = User.query.filter_by(email=data['email']).first()
     
     if user and user.password == data['password']:
         return jsonify({"message": "Login successful"}), 200
     return jsonify({"message": "Invalid credentials"}), 401
 
-@bp.route('/register', methods=['POST'])
-def register_user():
-    data = request.get_json()
-    email = data.get('email')
-    password = data.get('password')
-
-    if not all([email, password]):
-        return jsonify({'error': 'Missing fields'}), 400
-
-    # Create user without hashing password
-    user = create_user(email, password)
-    return jsonify({'message': 'User created', 'user_id': user.id}), 201
