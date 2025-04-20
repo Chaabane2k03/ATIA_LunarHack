@@ -1,5 +1,6 @@
 from flask import Blueprint, request, jsonify
 from app.services.chatbot_service import ChatBotService
+from app.services.localisation_service import *
 
 # Instantiate ChatbotModel (ensures model is loaded or trained)
 chatbot_model = ChatBotService("./data.json")
@@ -14,6 +15,18 @@ def handle_prompt():
         if not message:
             return jsonify({"error": "No message provided"}), 400
         response = chatbot_model.chatbot_response(message)
+        return jsonify({"response": response}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+    
+@bp.route('/guide' , methods=['POST'])
+def get_guide():
+    try:
+        data = request.get_json()
+        message = data.get('message')
+        if not message:
+            return jsonify({"error": "No message provided"}), 400
+        response = ask_bot(message)
         return jsonify({"response": response}), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
